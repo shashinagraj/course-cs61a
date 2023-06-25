@@ -1,0 +1,11 @@
+(define test-data-1 '(1 2 3 4 5))
+(define test-data-2 '())
+(define test-data-3 '(1))
+(define test-data-4 '(4 2 3 1 56))
+
+(define (ordered? sent)
+	(cond ((empty? sent) #t)
+				((= (length sent) 1) #t)
+				((<= (first sent) (first (bf sent)))
+				 (ordered? (bf sent)))
+				(else #f)))
